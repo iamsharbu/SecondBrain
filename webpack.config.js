@@ -19,8 +19,9 @@ module.exports = {
      
     ],
     module: { //pass rules to tell loader on how to form bundles using modules
-        rules: [{
-            test: [/.js$/],
+        rules: [
+        {
+            test: /\.(js|jsx)$/,
             exclude: /node_modules/,
             use: {
                 loader: 'babel-loader', 
@@ -28,6 +29,13 @@ module.exports = {
                     presets: ['@babel/preset-env', '@babel/preset-react']
                 }
             }
+        },
+        {
+            test: /\.(ts|tsx)$/, 
+            loader: "ts-loader" 
         }]
+    },
+    resolve: {
+        extensions: ["*", ".js", ".jsx", ".ts", ".tsx"],    
     }
 }
