@@ -1,4 +1,7 @@
 const path = require('path');
+const webpack = require('webpack')
+const dotenv = require('dotenv')
+dotenv.config();
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: './src/index.js', //where to start resolving dependency graph
@@ -9,7 +12,11 @@ module.exports = {
     plugins: [
         new HTMLWebpackPlugin({
             template: './src/index.html' //tells webpack to inject bundle.js into this html
-        })
+        }),
+        new webpack.DefinePlugin({
+            'process.env': JSON.stringify(process.env)
+         })
+     
     ],
     module: { //pass rules to tell loader on how to form bundles using modules
         rules: [{
