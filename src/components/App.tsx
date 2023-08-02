@@ -25,7 +25,7 @@ const errorLink = onError(({ graphQLErrors }) => {
 });
 const link = from([
   errorLink,
-  new HttpLink({ uri: 'http://localhost:6969/graphql' }),
+  new HttpLink({ uri: 'https://second-brain-luk9.onrender.com/graphql' }),
 ]);
 const client = new ApolloClient({
   cache: new InMemoryCache(),
