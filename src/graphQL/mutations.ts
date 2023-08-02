@@ -2,9 +2,18 @@
 import { gql } from '@apollo/client';
 
 export const CREATE_TASK = gql`
-  mutation createUser($name: String!) {
+  mutation createTask($name: String!) {
     createTask(name: $name) {
       id
+    }
+  }
+`;
+
+export const DELETE_TASK = gql`
+  mutation deleteTask($id: ID!) {
+    deleteTask(id: $id) {
+        id
+        name
     }
   }
 `;

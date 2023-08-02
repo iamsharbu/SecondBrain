@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { ErrorBoundary } from 'react-error-boundary';
 import {
   ApolloClient,
@@ -11,11 +10,10 @@ import {
   ApolloProvider,
 } from '@apollo/client';
 import { onError } from '@apollo/client/link/error';
-import LoginButton from './LoginButton';
-import LogoutButton from './LogoutButton';
-import Home from './Home';
 import { ErrorFallback } from './ErrorFallback';
 import { errorHandler } from '../utils/common';
+import SecondBrain from './SecondBrain';
+import Spinner from './Spinner';
 
 const errorLink = onError(({ graphQLErrors }) => {
   if (graphQLErrors) {
@@ -39,16 +37,9 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <ErrorBoundary fallback={<ErrorFallback />} onError={errorHandler}>
-        {error && <p>Error!!!</p>}
-        {!error && isLoading && <p>Loading...</p>}
-        {!isLoading && !error && (
-          <div>
-            <h1>This is a simple React component</h1>
-            <LoginButton />
-            <LogoutButton />
-            <Home />
-          </div>
-        )}
+        {error && <ErrorFallback />}
+        {!error && isLoading && <Spinner />}
+        {!isLoading && !error && <SecondBrain />}
       </ErrorBoundary>
     </ApolloProvider>
   );

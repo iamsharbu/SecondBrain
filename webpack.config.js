@@ -35,6 +35,10 @@ module.exports = {
       {
         test: /\.(ts|tsx)$/,
         loader: 'ts-loader',
+      },
+      {
+        test: /\.(s*)css$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       }],
   },
   resolve: {
