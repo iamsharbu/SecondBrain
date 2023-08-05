@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { gql } from '@apollo/client';
 
 export const LOAD_TASKS = gql`

@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
+import React from 'react';
 
-export const ErrorFallback: FC = () => (
+export const ErrorFallback = () => (
   <div>
     <h1>Never gonna give you up...</h1>
     <img

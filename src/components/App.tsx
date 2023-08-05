@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -17,15 +16,14 @@ import Spinner from './Spinner';
 
 const errorLink = onError(({ graphQLErrors }) => {
   if (graphQLErrors) {
-    // eslint-disable-next-line array-callback-return
-    graphQLErrors.map(({ message }) => {
-      alert(`Graphql error ${message}`);
-    });
+    // graphQLErrors.map(({ message }) => {
+    //   // alert(`Graphql error ${message}`);
+    // });
   }
 });
 const link = from([
   errorLink,
-  new HttpLink({ uri: 'https://second-brain-luk9.onrender.com/graphql' }),
+  new HttpLink({ uri: 'http://localhost:6969/graphql' }),
 ]);
 const client = new ApolloClient({
   cache: new InMemoryCache(),

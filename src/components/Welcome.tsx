@@ -1,9 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { Image, Space, Typography } from 'antd';
 import LoginButton from './LoginButton';
 
-const Welcome: React.FC = () => (
+const Welcome = () => (
   <Space
     align="center"
     direction="vertical"
@@ -18,7 +17,7 @@ const Welcome: React.FC = () => (
     <Space align="center" direction="horizontal">
       <Image
         src="https://www.freeiconspng.com/thumbs/brain-icon-png/red-brain-20.png"
-        width={'126.969px'}
+        width="126.969px"
       />
     </Space>
     <Space align="center" direction="vertical" size={32}>

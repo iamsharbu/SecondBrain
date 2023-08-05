@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React, { useState } from 'react';
 import { Button, Form, FormInstance, Input, Modal } from 'antd';
 import TextArea from 'antd/es/input/TextArea';
@@ -9,7 +8,7 @@ import { CREATE_TASK } from '../graphQL/mutations';
 interface AddTaskProps {
   isVisible: boolean;
   setVisible: (state: boolean) => void;
-  refreshTaskList: any;
+  refreshTaskList: () => void;
 }
 
 const AddTask: React.FC<AddTaskProps> = ({
@@ -39,6 +38,7 @@ const AddTask: React.FC<AddTaskProps> = ({
     setVisible(false);
   };
 
+  // eslint-disable-next-line react/no-unstable-nested-components
   const SubmitButton = ({ form }: { form: FormInstance }) => {
     const [submittable, setSubmittable] = React.useState(false);
 

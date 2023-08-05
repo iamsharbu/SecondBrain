@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { ConfigProvider, theme } from 'antd';
 import { useAuth0 } from '@auth0/auth0-react';

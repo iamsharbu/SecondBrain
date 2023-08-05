@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { useQuery } from '@apollo/client';
 import React, { useEffect, useState } from 'react';
 import { List, Space, Typography, Layout, FloatButton } from 'antd';
@@ -22,7 +21,6 @@ import {
 import AIModal from './GenerativeAIModal';
 
 const TaskList = () => {
-  // eslint-disable-next-line object-curly-newline
   const { error, loading, data, refetch } = useQuery(LOAD_TASKS);
   const [tasks, setTasks] = useState({});
   const { Header, Content } = Layout;
@@ -63,7 +61,9 @@ const TaskList = () => {
               size="large"
               bordered
               dataSource={Array.prototype.slice.call(tasks)}
-              renderItem={(item: any) => (
+              renderItem={(
+                item: any // TODO
+              ) => (
                 <TaskItem
                   id={item.id}
                   name={item.name}
@@ -94,7 +94,7 @@ const TaskList = () => {
             </FloatButton.Group>
           </Footer>
           <AIModal
-            isVisble={isGenerativeAIModalVisible}
+            isVisible={isGenerativeAIModalVisible}
             setVisible={setGenerativeAIModalVisible}
             tasks={Array.prototype.slice.call(tasks)}
           />
