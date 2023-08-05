@@ -10,4 +10,12 @@ export const LOAD_TASKS = gql`
   }
 `;
 
+export const ASK_AI = gql`
+  query askAI($prompt: String!){
+    askAI(prompt: $prompt){
+      response
+    }
+  }
+`;
+
 export const a = 1;

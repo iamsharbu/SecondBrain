@@ -19,6 +19,7 @@ import {
   contentStyle,
   footerStyle,
 } from '../styles/TaskListStyles';
+import AIModal from './GenerativeAIModal';
 
 const TaskList = () => {
   // eslint-disable-next-line object-curly-newline
@@ -26,6 +27,8 @@ const TaskList = () => {
   const [tasks, setTasks] = useState({});
   const { Header, Content } = Layout;
   const [isAddTaskModalVisible, setAddTaskModalVisible] = useState(false);
+  const [isGenerativeAIModalVisible, setGenerativeAIModalVisible] =
+    useState(false);
 
   const refreshTaskList = () => {
     refetch();
@@ -76,7 +79,12 @@ const TaskList = () => {
               style={{ right: 24 }}
               icon={<ExperimentOutlined />}
             >
-              <FloatButton icon={<BulbOutlined />} />
+              <FloatButton
+                icon={<BulbOutlined />}
+                onClick={() => {
+                  setGenerativeAIModalVisible(true);
+                }}
+              />
               <FloatButton
                 icon={<PlusOutlined />}
                 onClick={() => {
@@ -85,6 +93,11 @@ const TaskList = () => {
               />
             </FloatButton.Group>
           </Footer>
+          <AIModal
+            isVisble={isGenerativeAIModalVisible}
+            setVisible={setGenerativeAIModalVisible}
+            tasks={Array.prototype.slice.call(tasks)}
+          />
           <AddTask
             isVisible={isAddTaskModalVisible}
             setVisible={setAddTaskModalVisible}
